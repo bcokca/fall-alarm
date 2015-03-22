@@ -16,7 +16,7 @@ app.use(multer({ dest: './uploads/'}));
 
 // Enables CORS
 var enableCORS = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', 'localhost app.voicia.co voicia.app.aws.af.cm');
+    res.header('Access-Control-Allow-Origin', 'http://localhost:9000');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     // intercept OPTIONS method

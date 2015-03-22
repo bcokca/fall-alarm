@@ -53,7 +53,7 @@ var setupDevMode = function(){
         FALLARM.mysqlConfiguration = {
             host     : 'localhost',
             user     : 'root',
-            password : '',
+            password : 'arrayent',
             database : 'fallarm-db',
             port     : "3306",
             charset  : 'utf8',

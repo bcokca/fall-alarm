@@ -137,6 +137,37 @@ exports.updatePassword = function(req, res) {
     res.send(response);
 };
 
+
+exports.test = function(req, res){
+
+    res.send(new result.result(true, {burhan:'test'}))
+}
+
+
+exports.getPatient = function(req, res){
+
+    //Use the db to get users information
+    var device_id = req.params.device_id;
+
+    db.execute("SELECT * FROM patients where device_id = ? " , [device_id],
+
+        function(err, data){
+
+            console.log('err', err);
+            console.log('data', data);
+
+            if(err) {
+                var response = new result.result(false, {}, err);
+                res.send(response);
+            }else{
+                var response = new result.result(true, data);
+                res.send(response);
+            }
+        });
+
+
+};
+
 exports.register = function(req, res) {
 
     var member = req.body.member;
