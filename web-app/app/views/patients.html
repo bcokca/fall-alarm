@@ -1,0 +1,50 @@
+<script type="text/ng-template" id="myModalContent.html">
+  <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li ng-repeat="item in items">
+        <a ng-click="selected.item = item">{{ item }}</a>
+      </li>
+    </ul>
+    Selected: <b>{{ selected.item }}</b>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+  </div>
+</script>
+
+
+<h2>Tenant Management</h2>
+
+<button class="btn btn-success" ng-click="open()">
+  <i class="glyphicon glyphicon-plus"></i> Add Patient</button>
+
+<div class="table-responsive">
+
+  <input type="text" class="pull-right"  id="search"
+         placeholder="Search" ng-model="search">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Device ID</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody ng-repeat="patient in patientList | filter:search">
+    <tr>
+      <td>{{patient.id}}</td>
+      <td>{{patient.name}}</td>
+      <td>{{patient.lastname}}</td>
+      <td>{{patient.device_id}}</td>
+      <td><button class="btn btn-warning" ng-click="open()"><i class="glyphicon glyphicon-edit"></i> Edit</button>
+        <button class="btn btn-danger" ng-click="open()" ><i class="glyphicon glyphicon-remove"></i> Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -22,19 +22,21 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
+      <div class="header" ng-if="user" ng-controller="HeaderCtrl">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
+          <li ng-class="{active: (getCurrentPath() == '/') }" ><a ng-href="#">Home</a></li>
+          <li ng-class="{active: (getCurrentPath() == '/patients') }" ><a ng-href="#/patients">Patients</a></li>
+          <li ng-class="{active: (getCurrentPath().indexOf('patient/') > -1) }" ><a ng-href="#/patients">Patient Detail</a></li>
+          <li ng-class="{active: (getCurrentPath() == '/about') }" ><a ng-href="#/about">About</a></li>
+          <li><a ng-href="#">Logout</a></li>
         </ul>
-        <h3 class="text-muted">webApp</h3>
+        <h3 class="text-muted">FALL-ALARM</h3>
       </div>
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+      <div class="footer" ng-if="user">
+        <p class="text-center">FALL ALARM</p>
       </div>
     </div>
 
@@ -78,6 +80,11 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/patients.js"></script>
+        <script src="scripts/controllers/patientDetail.js"></script>
+        <script src="scripts/controllers/header.js"></script>
+        <script src="scripts/services/api.js"></script>
         <!-- endbuild -->
 </body>
 </html>
