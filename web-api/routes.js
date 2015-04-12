@@ -21,7 +21,10 @@ exports.define = function() {
     // MEMBERSHIP Routes
     // app.post(   '/member/forgot', member.forgot);
     app.get( '/api/test', member.test);
-    app.get( '/api/user/device/:device_id', member.getPatient);
+    app.get( '/api/v1/patient/device/:device_id', member.getPatient);
+
+    app.get( '/api/v1/patient', member.getPatients);
+
     app.post( '/api/v1/register', member.register);
     app.post( '/api/v1/login', passport.authenticate('local'), member.login);
     app.post( '/api/v1/logout', member.logout);

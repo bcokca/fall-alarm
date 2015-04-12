@@ -165,6 +165,25 @@ exports.getPatient = function(req, res){
             }
         });
 
+};
+
+exports.getPatients = function(req, res){
+
+    db.execute("SELECT * FROM patients" , [],
+
+        function(err, data){
+
+            console.log('err', err);
+            console.log('data', data);
+
+            if(err) {
+                var response = new result.result(false, {}, err);
+                res.send(response);
+            }else{
+                var response = new result.result(true, data);
+                res.send(response);
+            }
+        });
 
 };
 
