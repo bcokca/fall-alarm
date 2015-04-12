@@ -9,9 +9,10 @@ var express = require('express'),
 // Create app
 app = express();
 
+app.use(express.static(__dirname + '/dist'));
 
 //Upload file
-app.use(multer({ dest: './uploads/'}));
+//app.use(multer({ dest: './uploads/'}));
 
 
 // Enables CORS
