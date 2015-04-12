@@ -7,8 +7,8 @@ var apiServices = angular.module('apiServices',[]);
 
 
 function getUrl(){
-  //return 'http://ec2-52-11-151-82.us-west-2.compute.amazonaws.com:3000';
-  return 'http://localhost:3000';
+  return 'http://ec2-52-11-151-82.us-west-2.compute.amazonaws.com:3000';
+  //return 'http://localhost:3000';
 }
 
 
