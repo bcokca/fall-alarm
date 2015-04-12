@@ -42,43 +42,19 @@ angular
       })
       .when('/patient/:device_id', {
         templateUrl: 'views/patientDetail.html',
-        controller: 'PatientDetailCtrl'
-       // resolve: { user: userResolver }
+        controller: 'PatientDetailCtrl',
+        resolve: { user: userResolver }
       })
       .otherwise({
         redirectTo: '/'
       });
   });
 
-var userResolver = function($q, $http, $rootScope, $location, loginService){
+var userResolver = function($q, $http, $rootScope, $location, loginService, currentUser){
 
-  var deferred = $q.defer();
+  //var deferred = $q.defer();
 
   // already resolved
-  //todo --go to use cookie instead of rootscope
-  if($rootScope.user)
-    deferred.resolve($rootScope.user);
-
-  // first time
-  else {
-
-    $rootScope.user =  loginService.loggedin();
-    deferred.resolve($rootScope.user);
-
-    /*
-    loginService.loggedin()
-      .success(function(data, status, headers, config){
-        if(data.status) {
-          $rootScope.user = data.result;
-          deferred.resolve($rootScope.user);
-        }
-        else {
-          deferred.reject();
-          $location.path("/login");
-        }
-      })
-      .error(function(data, status, headers, config) {}); **/
-  }
-
-  return deferred.promise;
+  if(!currentUser.get())
+    $location.path('/login');
 };

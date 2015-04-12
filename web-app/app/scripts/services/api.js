@@ -7,7 +7,8 @@ var apiServices = angular.module('apiServices',[]);
 
 
 function getUrl(){
-  return 'http://ec2-52-11-151-82.us-west-2.compute.amazonaws.com:3000';
+  //return 'http://ec2-52-11-151-82.us-west-2.compute.amazonaws.com:3000';
+  return 'http://localhost:3000';
 }
 
 
@@ -19,6 +20,24 @@ apiServices.factory("deviceService", function( $http) {
     },
     getPatients: function(){
       return $http({method: "get", url: getUrl() +  "/api/v1/patient"});
+    }
+
+  });
+
+
+});
+
+apiServices.factory("currentUser", function( $cookieStore) {
+
+  return ({
+    get: function(){
+      return $cookieStore.get('currentUser-fallarm');
+    },
+    put: function(user){
+      $cookieStore.put('currentUser-fallarm', user);
+    },
+    remove: function(){
+      $cookieStore.remove('currentUser-fallarm');
     }
 
   });

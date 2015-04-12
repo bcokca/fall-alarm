@@ -21,7 +21,8 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span>
-                      <input class="form-control" placeholder="Username" name="loginname" type="text" autofocus>
+                      <input class="form-control" placeholder="Username" ng-model="username" name="loginname"
+                             type="text" autofocus>
                     </div>
                   </div>
                   <div class="form-group">
@@ -29,11 +30,15 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-                      <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                      <input class="form-control" placeholder="Password" name="password" type="password" ng-model="password">
                     </div>
                   </div>
                   <div class="form-group">
                     <input type="submit" ng-click="login()" class="btn btn-lg btn-primary btn-block" value="Sign in">
+
+                    <p style="margin-top: 20px; color: white;" class="label-danger" ng-show="loginFailed">
+                      Username or Password is not correct!</p>
+
                   </div>
                 </div>
               </div>

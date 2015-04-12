@@ -8,11 +8,6 @@ angular.module('webAppApp').controller('PatientsCtrl',
 
 
     var init = function(){
-
-      //if user is not logged in return false
-      if(!$rootScope.user){
-        $location.path('/login');
-      };
     $scope.patientList = [];
       getPatients();
       $scope.items = ['item1', 'item2', 'item3'];

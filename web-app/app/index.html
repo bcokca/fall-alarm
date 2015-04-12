@@ -22,20 +22,20 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header" ng-if="user" ng-controller="HeaderCtrl">
-        <ul class="nav nav-pills pull-right">
+      <div class="header" ng-controller="HeaderCtrl">
+        <ul class="nav nav-pills pull-right"  ng-if="isUserLoggedIn()">
           <li ng-class="{active: (getCurrentPath() == '/') }" ><a ng-href="#">Home</a></li>
           <li ng-class="{active: (getCurrentPath() == '/patients') }" ><a ng-href="#/patients">Patients</a></li>
           <li ng-class="{active: (getCurrentPath().indexOf('patient/') > -1) }" ><a ng-href="#/patients">Patient Detail</a></li>
           <li ng-class="{active: (getCurrentPath() == '/about') }" ><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Logout</a></li>
+          <li><a ng-click="logout()">Logout</a></li>
         </ul>
         <h3 class="text-muted">FALL-ALARM</h3>
       </div>
 
       <div ng-view=""></div>
 
-      <div class="footer" ng-if="user">
+      <div class="footer">
         <p class="text-center">FALL ALARM</p>
       </div>
     </div>
