@@ -15,7 +15,10 @@ apiServices.factory("deviceService", function( $http) {
 
   return ({
     getUserByDeviceId: function(device_id){
-      return $http({method: "get", url: getUrl() +  "/api/user/device/" + device_id});
+      return $http({method: "get", url: getUrl() +  "/api/v1/patient/device/" + device_id});
+    },
+    getPatients: function(){
+      return $http({method: "get", url: getUrl() +  "/api/v1/patient"});
     }
 
   });

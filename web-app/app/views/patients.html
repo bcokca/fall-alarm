@@ -17,7 +17,7 @@
 </script>
 
 
-<h2>Tenant Management</h2>
+<h2>Patient Management</h2>
 
 <button class="btn btn-success" ng-click="open()">
   <i class="glyphicon glyphicon-plus"></i> Add Patient</button>
@@ -38,8 +38,8 @@
     </thead>
     <tbody ng-repeat="patient in patientList | filter:search">
     <tr>
-      <td>{{patient.id}}</td>
-      <td>{{patient.name}}</td>
+      <td>{{patient.patient_id}}</td>
+      <td>{{patient.firstname}}</td>
       <td>{{patient.lastname}}</td>
       <td>{{patient.device_id}}</td>
       <td><button class="btn btn-warning" ng-click="open()"><i class="glyphicon glyphicon-edit"></i> Edit</button>

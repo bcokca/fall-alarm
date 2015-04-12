@@ -3,7 +3,8 @@
  */
 
 
-angular.module('webAppApp').controller('PatientsCtrl', function ($scope, $modal, $rootScope, $location) {
+angular.module('webAppApp').controller('PatientsCtrl',
+  function ($scope, $modal, $rootScope, $location, deviceService) {
 
 
     var init = function(){
@@ -12,22 +13,28 @@ angular.module('webAppApp').controller('PatientsCtrl', function ($scope, $modal,
       if(!$rootScope.user){
         $location.path('/login');
       };
-
-      $scope.patientList = [
-        {id:'1', name:'John', lastname: 'Davis', device_id: '1'},
-        {id:'2',name:'Mike', lastname: 'Davis', device_id: '2'},
-        {id:'3',name:'Geremy', lastname: 'Davis', device_id: '3'},
-        {id:'4',name:'John', lastname: 'Davis', device_id: '4'},
-        {id:'5',name:'John', lastname: 'Davis', device_id: '5'},
-        {id:'6',name:'John', lastname: 'Davis', device_id: '6'}
-      ]
-
+    $scope.patientList = [];
+      getPatients();
       $scope.items = ['item1', 'item2', 'item3'];
 
 
     }
 
   init();
+
+  function getPatients(){
+    deviceService.getPatients()
+      .success(function(data){
+        console.log('data',data);
+        $scope.patientList = data.result;
+
+
+      })
+      .error(function(err){
+        console.log('error occurred while getting patients information', err);
+      })
+
+  }
 
 
 
