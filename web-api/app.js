@@ -3,8 +3,7 @@
  */
 var express = require('express'),
     http = require('http'),
-    path = require('path'),
-    multer = require('multer');
+    path = require('path');
 
 // Create app
 app = express();

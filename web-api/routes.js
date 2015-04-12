@@ -6,7 +6,7 @@ var member = require('./handlers/member');
 
 var passport = require('passport');
 var result = require('./model/result');
-var multer = require('multer');
+//var multer = require('multer');
 
 // Define a middleware function to be used for every secured routes
 var mid_auth = function(req, res, next){
