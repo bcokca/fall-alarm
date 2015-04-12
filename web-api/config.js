@@ -51,10 +51,10 @@ var setupDevMode = function(){
         app.use(errorhandler());
 
         FALLARM.mysqlConfiguration = {
-            host     : 'localhost',
-            user     : 'root',
-            password : 'arrayent',
-            database : 'fallarm-db',
+            host     : 'fallarm-db.crd2o0kiesy4.us-west-2.rds.amazonaws.com',
+            user     : 'bcokca',
+            password : 'fallarmcs595',
+            database : 'fallarm',
             port     : "3306",
             charset  : 'utf8',
             multipleStatements : true
